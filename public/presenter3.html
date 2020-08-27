@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<head>
+		<meta charset="UTF-8" />
+		<title>Light | ASEB IEEE SIGHT</title>
+		<meta property="og:title" content="Light | ASEB IEEE SIGHT" />
+		<meta
+			property="og:url"
+			content="https://aseb-ieee-sight.web.app/light"
+		/>
+		<meta name="description" content="Light it up!" />
+		<meta property="og:description" content="Light it up!" />
+		<meta property="og:image" content="/android-chrome-512x512.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="/favicon.ico" rel="shortcut icon" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a4123e" />
+		<meta name="apple-mobile-web-app-title" content="ASEB IEEE SIGHT" />
+		<meta name="application-name" content="ASEB IEEE SIGHT" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta name="theme-color" content="#ffffff" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script src="/__/firebase/7.19.0/firebase-app.js"></script>
+		<script src="/__/firebase/7.19.0/firebase-database.js"></script>
+		<script src="/__/firebase/init.js"></script>
+	</head>
+	<body>
+		<div id="preloder">
+			<div class="loader"></div>
+		</div>
+
+		<header class="header-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4"></div>
+					<div class="col-lg-4 col-md-4">
+						<div class="logo">
+							<a href="/"
+								><img src="amrita.png" alt="Amrita logo"
+							/></a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4"></div>
+				</div>
+			</div>
+		</header>
+		<section class="page-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<p>
+							<img
+								id="lamp"
+								alt="Lamp loading ..."
+								class="rounded mx-auto d-block img-thumbnail"
+								style="height: 50vh"
+							/>
+						</p>
+					</div>
+					<div class="col-lg-5 offset-lg-1">
+						<figure>
+							<img
+								src="amma.png"
+								alt="Amma"
+								class="img-fluid rounded mx-auto d-block img-thumbnail"
+							/>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="footer-section text-center">
+			<div class="container">
+				<div class="copyright">
+					Copyright &copy;
+					<script type="c873b9c0e3b178c8b078e9bd-text/javascript">
+						document.write(new Date().getFullYear());
+					</script>
+					Some rights reserved | Made with
+					<i
+						class="fa fa-heart"
+						style="color: red"
+						aria-hidden="true"
+					></i>
+					by
+					<a
+						href="https://linkedin.com/in/AravindVNair99"
+						target="_blank"
+						>Aravind V. Nair</a
+					>
+					for IEEE Amrita Bengaluru
+				</div>
+			</div>
+		</footer>
+		<script
+			src="/js/jquery-2.1.4.min.js"
+			type="884dfb3397d90ff7cf9939c3-text/javascript"
+		></script>
+		<script
+			src="/js/bootstrap.min.js"
+			type="884dfb3397d90ff7cf9939c3-text/javascript"
+		></script>
+		<script
+			src="/js/mixitup.min.js"
+			type="884dfb3397d90ff7cf9939c3-text/javascript"
+		></script>
+		<script
+			src="/js/magnific-popup.min.js"
+			type="884dfb3397d90ff7cf9939c3-text/javascript"
+		></script>
+		<script
+			src="/js/main.js"
+			type="884dfb3397d90ff7cf9939c3-text/javascript"
+		></script>
+		<script
+			src="/js/rocket-loader.min.js"
+			data-cf-settings="884dfb3397d90ff7cf9939c3-|49"
+			defer=""
+		></script>
+		<script>
+			firebase
+				.database()
+				.ref("lamp/count")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == null) {
+						lamp.src = "0.jpg";
+						var divsToHide = document.getElementsByClassName(
+							"rainDrop"
+						);
+						for (var i = 0; i < divsToHide.length; i++) {
+							divsToHide[i].style.visibility = "hidden";
+							divsToHide[i].style.display = "null";
+						}
+					} else if (snapshot.val() >= 7) {
+						lamp.src = "7.jpg";
+						var divsToHide = document.getElementsByClassName(
+							"rainDrop"
+						);
+						for (var i = 0; i < divsToHide.length; i++) {
+							divsToHide[i].style.visibility = "";
+							divsToHide[i].style.display = "";
+						}
+					} else {
+						lamp.src = snapshot.val() + ".jpg";
+					}
+				});
+		</script>
+		<script>
+			if (typeof jQuery == "undefined") {
+				document.write("<" + "script");
+				document.write(' language="javascript"');
+				document.write(' type="text/javascript"');
+				document.write(
+					' src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">'
+				);
+				document.write("</" + "script" + ">");
+			}
+		</script>
+		<script>
+			if (!image_urls) {
+				var image_urls = Array();
+			}
+			if (!flash_urls) {
+				var flash_urls = Array();
+			}
+			image_urls["rain1"] = "https://image.ibb.co/kyUHab/rose.png";
+			image_urls["rain2"] =
+				"https://2.bp.blogspot.com/-PoisKeBlzwY/WPsTW0T5XZI/AAAAAAAAD7A/pD0KyWfatBY-JhGTFf7zdd-h0oPuPmTZQCLcB/s1600/f2-helponblogging.png";
+			image_urls["rain3"] =
+				"https://4.bp.blogspot.com/-3-Rlq33iHvY/WPsTW9AgmKI/AAAAAAAAD7I/-0N0I2XgbYQUPIeRk6xwtJhw1AENdiW-QCLcB/s1600/f3-helponblogging.png";
+			image_urls["rain4"] =
+				"https://4.bp.blogspot.com/-jX-p-rR1y6E/WPsTYVJasNI/AAAAAAAAD7M/WqQtmzbL1x4-PLxYuT0UPgbCCxEI0EYiACLcB/s1600/f4-helponblogging.png";
+			$(document).ready(function () {
+				var c = $(window).width();
+				var d = $(window).height();
+				var e = function (a, b) {
+					return Math.round(a + Math.random() * (b - a));
+				};
+				var f = function (a) {
+					setTimeout(function () {
+						a.css({
+							left: e(0, c) + "px",
+							top: "-30px",
+							display: "block",
+							opacity: "0." + e(10, 100),
+						}).animate(
+							{ top: d - 10 + "px" },
+							e(7500, 8000),
+							function () {
+								$(this).fadeOut("slow", function () {
+									f(a);
+								});
+							}
+						);
+					}, e(1, 8000));
+				};
+				$("<div></div>")
+					.attr("id", "rainDiv")
+					.css({
+						position: "fixed",
+						width: c - 20 + "px",
+						height: "1px",
+						left: "0px",
+						top: "-5px",
+						display: "block",
+					})
+					.appendTo("body");
+				for (var i = 1; i <= 70; i++) {
+					var g = $("<img/>")
+						.attr("src", image_urls["rain" + e(1, 4)])
+						.css({
+							position: "absolute",
+							left: e(0, c) + "px",
+							top: "-30px",
+							display: "block",
+							opacity: "0." + e(10, 100),
+							"margin-left": 0,
+						})
+						.addClass("rainDrop")
+						.appendTo("#rainDiv");
+					f(g);
+					g = null;
+				}
+				var h = 0;
+				var j = 0;
+				$(window).resize(function () {
+					c = $(window).width();
+					d = $(window).height();
+				});
+			});
+		</script>
+		<script>
+			if (typeof jQuery == "undefined") {
+				document.write("<" + "script");
+				document.write(' language="javascript"');
+				document.write(' type="text/javascript"');
+				document.write(
+					' src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">'
+				);
+				document.write("</" + "script" + ">");
+			}
+		</script>
+		<script>
+			$(document).ready(function(){var a=$('<img>').attr({'src':'
+			https://3.bp.blogspot.com/-n-XnbD1i3Z8/WPsTW3R8xdI/AAAAAAAAD7E/FHwMrQ5HMms7w1b1AKTUY31RLGmy_fgkACLcB/s1600/f1-helponblogging.png','border':0});
+		</script>
+	</body>
+</html>
