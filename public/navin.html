@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<head>
+		<meta charset="UTF-8" />
+		<title>Light | ASEB IEEE SIGHT</title>
+		<meta property="og:title" content="Light | ASEB IEEE SIGHT" />
+		<meta
+			property="og:url"
+			content="https://aseb-ieee-sight.web.app/light"
+		/>
+		<meta name="description" content="Light it up!" />
+		<meta property="og:description" content="Light it up!" />
+		<meta property="og:image" content="/android-chrome-512x512.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="/favicon.ico" rel="shortcut icon" />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a4123e" />
+		<meta name="apple-mobile-web-app-title" content="ASEB IEEE SIGHT" />
+		<meta name="application-name" content="ASEB IEEE SIGHT" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta name="theme-color" content="#ffffff" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script src="/__/firebase/7.19.0/firebase-app.js"></script>
+		<script src="/__/firebase/7.19.0/firebase-database.js"></script>
+		<script src="/__/firebase/init.js"></script>
+	</head>
+	<body>
+		<div id="preloder">
+			<div class="loader"></div>
+		</div>
+
+		<header class="header-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-4"></div>
+					<div class="col-lg-4 col-md-4">
+						<div class="logo">
+							<a href="/"
+								><img src="amrita.png" alt="Amrita logo"
+							/></a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4"></div>
+				</div>
+			</div>
+		</header>
+
+		<section class="intro-section">
+			<div class="container text-center">
+				<div class="row">
+					<div class="col-xl-10 offset-xl-1">
+						<h2 class="section-title" style="font-weight: normal">
+							Greetings
+							<span style="color: #007bff" id="lighter"></span>!
+						</h2>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="page-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<p>
+							<img
+								id="lamp"
+								alt="Lamp loading ..."
+								class="rounded mx-auto d-block img-thumbnail"
+								style="height: 50vh"
+							/>
+						</p>
+					</div>
+					<div class="col-lg-5 offset-lg-1">
+						<figure>
+							<img
+								src="amma.png"
+								alt="Amma"
+								class="img-fluid rounded mx-auto d-block img-thumbnail"
+							/>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="footer-section text-center">
+			<div class="container">
+				<input
+					type="button"
+					id="sriram"
+					value="Dr. Sriram Devanathan"
+					class="btn btn-secondary"
+					onclick="light('sriram')"
+				/>
+				<input
+					type="button"
+					id="rakesh"
+					value="Dr. Rakesh S G"
+					class="btn btn-secondary"
+					onclick="light('rakesh')"
+				/>
+				<input
+					type="button"
+					id="puneet"
+					value="Mr. Puneet Kumar Mishra"
+					class="btn btn-secondary"
+					onclick="light('puneet')"
+				/>
+				<input
+					type="button"
+					id="abhishek"
+					value="Dr. Abhishek Appaji"
+					class="btn btn-secondary"
+					onclick="light('abhishek')"
+				/>
+				<input
+					type="button"
+					id="navin"
+					value="Dr. Navin Kumar"
+					class="btn btn-secondary"
+					onclick="light('navin')"
+				/>
+				<input
+					type="button"
+					id="ganapathi"
+					value="Dr. Ganapathi Hegde"
+					class="btn btn-secondary"
+					onclick="light('ganapathi')"
+				/>
+				<input
+					type="button"
+					id="sai"
+					value="Br. Sai Ram"
+					class="btn btn-secondary"
+					onclick="light('sai')"
+				/>
+				<input
+					type="reset"
+					value="Reset"
+					class="btn btn-danger"
+					onclick="reset()"
+				/>
+				<br /><br />
+				<div class="copyright">
+					Copyright &copy;
+					<script type="c873b9c0e3b178c8b078e9bd-text/javascript">
+						document.write(new Date().getFullYear());
+					</script>
+					Some rights reserved | Made with
+					<i
+						class="fa fa-heart"
+						style="color: red"
+						aria-hidden="true"
+					></i>
+					by
+					<a
+						href="https://linkedin.com/in/AravindVNair99"
+						target="_blank"
+						>Aravind V. Nair</a
+					>
+					for IEEE Amrita Bengaluru
+				</div>
+			</div>
+		</footer>
+		<script
+			src="/js/jquery-2.1.4.min.js"
+			type="884dfb3397d90ff7cf9939c3-text/javascript"
+		></script>
+		<script
+			src="/js/bootstrap.min.js"
+			type="884dfb3397d90ff7cf9939c3-text/javascript"
+		></script>
+		<script
+			src="/js/mixitup.min.js"
+			type="884dfb3397d90ff7cf9939c3-text/javascript"
+		></script>
+		<script
+			src="/js/magnific-popup.min.js"
+			type="884dfb3397d90ff7cf9939c3-text/javascript"
+		></script>
+		<script
+			src="/js/main.js"
+			type="884dfb3397d90ff7cf9939c3-text/javascript"
+		></script>
+		<script
+			src="/js/rocket-loader.min.js"
+			data-cf-settings="884dfb3397d90ff7cf9939c3-|49"
+			defer=""
+		></script>
+		<script>
+			var inputs = document.getElementsByTagName("input");
+			for (var i = 0; i < inputs.length; i++) {
+				if (inputs[i].type == "button") {
+					inputs[i].disabled = "disabled";
+				}
+			}
+			document
+				.getElementById(window.location.pathname.substr(1))
+				.removeAttribute("disabled");
+			document.getElementById(
+				"lighter"
+			).innerText = document.getElementById(
+				window.location.pathname.substr(1)
+			).value;
+			function light(name) {
+				firebase
+					.database()
+					.ref("people/" + name)
+					.set({
+						status: "on",
+					});
+				firebase
+					.database()
+					.ref("lamp/count")
+					.set(firebase.database.ServerValue.increment(1));
+			}
+			function reset() {
+				firebase.database().ref("people").remove();
+				firebase.database().ref("lamp").remove();
+			}
+			firebase
+				.database()
+				.ref("lamp/count")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == null) {
+						lamp.src = "0.jpg";
+					} else if (snapshot.val() > 7) {
+						lamp.src = "7.jpg";
+					} else {
+						lamp.src = snapshot.val() + ".jpg";
+					}
+				});
+			firebase
+				.database()
+				.ref("people/sriram/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("sriram")
+							.classList.replace("btn-secondary", "btn-warning");
+					} else {
+						document
+							.getElementById("sriram")
+							.classList.replace("btn-warning", "btn-secondary");
+					}
+				});
+			firebase
+				.database()
+				.ref("people/rakesh/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("rakesh")
+							.classList.replace("btn-secondary", "btn-warning");
+					} else {
+						document
+							.getElementById("rakesh")
+							.classList.replace("btn-warning", "btn-secondary");
+					}
+				});
+			firebase
+				.database()
+				.ref("people/puneet/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("puneet")
+							.classList.replace("btn-secondary", "btn-warning");
+					} else {
+						document
+							.getElementById("puneet")
+							.classList.replace("btn-warning", "btn-secondary");
+					}
+				});
+			firebase
+				.database()
+				.ref("people/abhishek/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("abhishek")
+							.classList.replace("btn-secondary", "btn-warning");
+					} else {
+						document
+							.getElementById("abhishek")
+							.classList.replace("btn-warning", "btn-secondary");
+					}
+				});
+			firebase
+				.database()
+				.ref("people/navin/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("navin")
+							.classList.replace("btn-secondary", "btn-warning");
+					} else {
+						document
+							.getElementById("navin")
+							.classList.replace("btn-warning", "btn-secondary");
+					}
+				});
+			firebase
+				.database()
+				.ref("people/ganapathi/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("ganapathi")
+							.classList.replace("btn-secondary", "btn-warning");
+					} else {
+						document
+							.getElementById("ganapathi")
+							.classList.replace("btn-warning", "btn-secondary");
+					}
+				});
+			firebase
+				.database()
+				.ref("people/sai/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("sai")
+							.classList.replace("btn-secondary", "btn-warning");
+					} else {
+						document
+							.getElementById("sai")
+							.classList.replace("btn-warning", "btn-secondary");
+					}
+				});
+		</script>
+	</body>
+</html>
