@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ASEB IEEE SIGHT</title>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+		<!-- <link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+			integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+			crossorigin="anonymous"
+        /> -->
+		<script src="/__/firebase/7.19.0/firebase-app.js"></script>
+		<script src="/__/firebase/7.19.0/firebase-database.js"></script>
+		<script src="/__/firebase/init.js"></script>
+	</head>
+	<body>
+		<div class="container" style="text-align: center">
+			<img src="amrita.png" alt="Amrita logo" class="img-fluid" />
+		</div>
+		<div class="container" style="text-align: center">
+			<h2>Lamp lighting ceremony of ASEB IEEE SIGHT</h2>
+			<img
+				id="lamp"
+				alt="Lamp loading ..."
+				class="img-fluid img-thumbnail rounded float-left"
+			/><br />
+			<img
+				src="amma.png"
+				alt="Lamp loading ..."
+				class="img-fluid img-thumbnail rounded float-right"
+			/><br />
+			<input
+				type="button"
+				id="sriram"
+				value="Dr. Sriram Devanathan"
+				class="btn btn-secondary"
+				onclick="light('sriram')"
+			/>
+			<input
+				type="button"
+				id="rakesh"
+				value="Dr. Rakesh S G"
+				class="btn btn-secondary"
+				onclick="light('rakesh')"
+			/>
+			<input
+				type="button"
+				id="puneet"
+				value="Dr. Puneet Kumar Mishra"
+				class="btn btn-secondary"
+				onclick="light('puneet')"
+			/>
+			<input
+				type="button"
+				id="abhishek"
+				value="Dr. Abhishek Appaji"
+				class="btn btn-secondary"
+				onclick="light('abhishek')"
+			/>
+			<input
+				type="button"
+				id="navin"
+				value="Dr. Navin Kumar"
+				class="btn btn-secondary"
+				onclick="light('navin')"
+			/>
+			<input
+				type="button"
+				id="ganapathi"
+				value="Dr. Ganapathi Hegde"
+				class="btn btn-secondary"
+				onclick="light('ganapathi')"
+			/>
+			<input
+				type="button"
+				id="sai"
+				value="Dr. Sai Ram"
+				class="btn btn-secondary"
+				onclick="light('sai')"
+			/>
+			<br />
+			<input
+				type="reset"
+				value="Reset"
+				class="btn btn-danger"
+				onclick="reset()"
+			/>
+		</div>
+		<script>
+			function light(name) {
+				firebase
+					.database()
+					.ref("people/" + name)
+					.set({
+						status: "on",
+					});
+				firebase
+					.database()
+					.ref("lamp/count")
+					.set(firebase.database.ServerValue.increment(1));
+			}
+			function reset() {
+				firebase.database().ref("resetLog").set({
+					time: firebase.database.ServerValue.TIMESTAMP,
+				});
+				firebase.database().ref("people").remove();
+				firebase.database().ref("lamp").remove();
+			}
+			firebase
+				.database()
+				.ref("lamp/count")
+				.on("value", function (snapshot) {
+					console.log(snapshot.val());
+					if (snapshot.val() == null) {
+						lamp.src = "0.jpg";
+					} else if (snapshot.val() > 7) {
+						lamp.src = "7.jpg";
+					} else {
+						lamp.src = snapshot.val() + ".jpg";
+					}
+				});
+			firebase
+				.database()
+				.ref("people/sriram/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("sriram")
+							.classList.replace("btn-secondary", "btn-warning");
+						console.log("Sriram: " + snapshot.val());
+					} else {
+						document
+							.getElementById("sriram")
+							.classList.replace("btn-warning", "btn-secondary");
+						console.log("Sriram: " + snapshot.val());
+					}
+				});
+			firebase
+				.database()
+				.ref("people/rakesh/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("rakesh")
+							.classList.replace("btn-secondary", "btn-warning");
+						console.log("Rakesh: " + snapshot.val());
+					} else {
+						document
+							.getElementById("rakesh")
+							.classList.replace("btn-warning", "btn-secondary");
+						console.log("Rakesh: " + snapshot.val());
+					}
+				});
+		</script>
+	</body>
+</html>
