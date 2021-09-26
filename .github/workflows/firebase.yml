@@ -1,8 +1,14 @@
 name: Firebase CD
 on:
+  workflow_dispatch:
   push:
+    paths:
+      - 'public/**'
+      - '.firebaserc'
+      - 'firebase.json'
+      - '.github/workflows/firebase.yml'
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
